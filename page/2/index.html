@@ -6,33 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Alpha-beta pruning | Flipped</title>
+  <title>Flipped</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionAlpha-beta pruning is the standard searching procedure used for 2-person perfect-information zero sum games.
-defination:
-A position p
-The value of a position $p$, $f(p)$ is a numerical val">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Alpha-beta pruning">
-<meta property="og:url" content="http://yoursite.com/2016/05/27/Alpha-beta-pruning/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Flipped">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Flipped">
-<meta property="og:description" content="IntroductionAlpha-beta pruning is the standard searching procedure used for 2-person perfect-information zero sum games.
-defination:
-A position p
-The value of a position $p$, $f(p)$ is a numerical val">
-<meta property="og:image" content="http://yoursite.com/images/alpha-beta-pruning/tree-node-numbering.png">
-<meta property="og:image" content="http://yoursite.com/images/alpha-beta-pruning/mini-max-formulation.png">
-<meta property="og:image" content="http://yoursite.com/images/alpha-beta-pruning/alpha-cut-off.png">
-<meta property="og:image" content="http://yoursite.com/images/alpha-beta-pruning/beta-cut-off.png">
-<meta property="og:image" content="http://yoursite.com/images/alpha-beta-pruning/deep-alpha-cut-off.png">
-<meta property="og:updated_time" content="2017-01-11T12:11:16.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alpha-beta pruning">
-<meta name="twitter:description" content="IntroductionAlpha-beta pruning is the standard searching procedure used for 2-person perfect-information zero sum games.
-defination:
-A position p
-The value of a position $p$, $f(p)$ is a numerical val">
-<meta name="twitter:image" content="http://yoursite.com/images/alpha-beta-pruning/tree-node-numbering.png">
+<meta name="twitter:title" content="Flipped">
   
     <link rel="alternative" href="/atom.xml" title="Flipped" type="application/atom+xml">
   
@@ -176,88 +157,38 @@ The value of a position $p$, $f(p)$ is a numerical val">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="[post]-Alpha-beta-pruning" class="article article-type-[post] " itemscope itemprop="blogPost">
+            
+  
+    <article id="[post]-NP-Complete-Reduction" class="article article-type-[post]  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Alpha-beta pruning
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/NP-Complete-Reduction/">NP Complete Reduction</a>
     </h1>
   
 
         
-        <a href="/2016/05/27/Alpha-beta-pruning/" class="archive-article-date">
-  	<time datetime="2016-05-27T02:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-27</time>
+        <a href="/2016/05/20/NP-Complete-Reduction/" class="archive-article-date">
+  	<time datetime="2016-05-20T02:57:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Alpha-beta pruning is the standard searching procedure used for 2-person perfect-information zero sum games.</p>
-<h3 id="defination"><a href="#defination" class="headerlink" title="defination:"></a>defination:</h3><ul>
-<li>A position p</li>
-<li>The value of a position $p$, $f(p)$ is a numerical value computed from evaluating p. <ol>
-<li>Value is computed from the root player’s point of view.</li>
-<li>Positive values mean in favor of the root player. Negative values mean in favor of the opponent.</li>
-<li>Since it’s a zero sum game, from the opponent’s view, the value can be assigned $-f(p)$</li>
+        <h2 id="A-propto-B"><a href="#A-propto-B" class="headerlink" title="$A \propto B$"></a>$A \propto B$</h2><ol>
+<li>$A, B$是判定性问题，将$A$问题转化为$B$问题的一个实例，调用$B$的算法解决</li>
+<li>$B$有解 $\rightarrow$  $A$有解  $\wedge$ $B$无解 $\rightarrow$ $A$无解</li>
+<li>只需证明可以由 $B$ 的解构造出 $A$ 的解，$A$ 的解可以构造出 $B$ 的解</li>
 </ol>
-</li>
-<li>A terminal position: a position whose value can be known.</li>
-<li>A position $p$ has $d$ legal moves, $p_1, p_2, \cdots , p_d$</li>
-</ul>
-<h2 id="Tree-node-numbering"><a href="#Tree-node-numbering" class="headerlink" title="Tree node numbering"></a>Tree node numbering</h2><p><img src="/images/alpha-beta-pruning/tree-node-numbering.png" alt="tree numbering"><br>like the picture above. This is called <strong>Dewey decimal system</strong></p>
-<a id="more"></a>
-<h2 id="Mini-max-formulation"><a href="#Mini-max-formulation" class="headerlink" title="Mini-max formulation"></a>Mini-max formulation</h2><p><img src="/images/alpha-beta-pruning/mini-max-formulation.png" alt="minimax example"></p>
-<p>$$F(p) = \cases { {f(p)} &amp; {if d = 0}   \\  {\max \lbrace G(p_1), G(p_2) , \cdots, G(p_d) \rbrace } &amp;  {if d &gt; 0}    }$$<br>$$G(p) = \cases { {f(p)} &amp; {if d = 0}   \\  {\min \lbrace F(p_1), F(p_2) , \cdots, F(p_d) \rbrace } &amp;  {if d &gt; 0}    }$$<br>we can call two players Max and Min, Max will always try to maximize the final value, and Min will try to minimize it.</p>
-<h3 id="Algorithm-Mini-max"><a href="#Algorithm-Mini-max" class="headerlink" title="Algorithm: Mini-max"></a>Algorithm: Mini-max</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Algorithm F(position p) //max node</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = - INF</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = G(pi)</div><div class="line">		<span class="keyword">if</span> t &gt; m then m = t</div><div class="line"><span class="keyword">return</span> m</div><div class="line"></div><div class="line">Algorithm G(position p) //min node</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = - INF</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = F(pi)</div><div class="line">		<span class="keyword">if</span> t &lt; m then m = t</div><div class="line"><span class="keyword">return</span> m</div></pre></td></tr></table></figure>
-<p>This is a brute-force method to try all possibilities.</p>
-<h2 id="Nega-max-formulation"><a href="#Nega-max-formulation" class="headerlink" title="Nega-max formulation"></a>Nega-max formulation</h2><p>since Max nodes will try to maximize value, Min nodes will try to minimize value. This causes some trouble.<br>If we change the Min nodes’ value to negative, each node will maximize its value. since it’s zero sum game, the negative values are exactly the value from the Min nodes’ view. This is why Min nodes wants to maximize it.<br>    $$F(p) = \cases{ {h(p)} &amp; {if d = 0}   \\  {\max \lbrace -F(p_1), -F(p_2) , \cdots, -F(p_d) \rbrace } &amp; {if d &gt; 0}  }$$<br>    $$h(p) = \cases{ {f(p)} &amp; {if depth of p is 0 or even} \\ {-f(p)} &amp; {if depth of p is odd}}$$</p>
-<h3 id="Algorithm-Nega-max"><a href="#Algorithm-Nega-max" class="headerlink" title="Algorithm: Nega-max"></a>Algorithm: Nega-max</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Algorithm F(position p)</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = - INF</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = -F(pi)</div><div class="line">		<span class="keyword">if</span> t &gt; m then m = t</div><div class="line"><span class="keyword">return</span> m</div></pre></td></tr></table></figure>
-<p>A simpler code, Huh?</p>
-<h2 id="Alpha-beta-cut-off"><a href="#Alpha-beta-cut-off" class="headerlink" title="Alpha-beta cut-off"></a>Alpha-beta cut-off</h2><h3 id="Alpha-cut-off"><a href="#Alpha-cut-off" class="headerlink" title="Alpha cut-off"></a>Alpha cut-off</h3><p><img src="/images/alpha-beta-pruning/alpha-cut-off.png" alt="Alpha cut-off"><br>On a max node.<br>Since node 1 has the value 15, the value of the root node $\geq$ 15. Node 2 has a child whose value is 10, so node 2 has a value $\leq$ 10. So the root node will never choose node 2, so we don’t have to travel node 2’s children. Just cut them off like the picture shows.<br>This is called <strong>alpha cut-off</strong>.</p>
-<h3 id="Beta-cut-off"><a href="#Beta-cut-off" class="headerlink" title="Beta cut-off"></a>Beta cut-off</h3><p><img src="/images/alpha-beta-pruning/beta-cut-off.png" alt="Beta cut-off"><br>On a min node.</p>
-<h3 id="Deep-alpha-cut-off"><a href="#Deep-alpha-cut-off" class="headerlink" title="Deep alpha cut-off"></a>Deep alpha cut-off</h3><p><img src="/images/alpha-beta-pruning/deep-alpha-cut-off.png" alt="Deep alpha cut-off"><br>like the picture.<br>We can find similar properties for deep beta cut-off.</p>
-<h3 id="Ideas-for-refinement"><a href="#Ideas-for-refinement" class="headerlink" title="Ideas for refinement"></a>Ideas for refinement</h3><ul>
-<li>$alpha$ is the current lower bound of the possible returned value;</li>
-<li>$beta$ is the current upper bound of the possible returned value;</li>
-<li>During searching, if $alpha &gt; beta$, then don’t need to search any more in this branch.</li>
-<li>Initially $alpha = -\infty, beta = \infty$</li>
-</ul>
-<h2 id="Alpha-beta-pruning-algorithm"><a href="#Alpha-beta-pruning-algorithm" class="headerlink" title="Alpha-beta pruning algorithm"></a>Alpha-beta pruning algorithm</h2><h3 id="Mini-max"><a href="#Mini-max" class="headerlink" title="Mini-max"></a>Mini-max</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Algorithm F2(position p, alpha, beta) //max node</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = alpha</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = G2(pi, m, beta)</div><div class="line">		<span class="keyword">if</span> t &gt; m then m = t</div><div class="line">		<span class="keyword">if</span> m &gt;= beta then <span class="keyword">return</span> m //beta cut-off</div><div class="line"><span class="keyword">return</span> m</div><div class="line"></div><div class="line">Algorithm G2(position p, alpha, beta) //min node</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = beta</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = F2(pi, alpha, m)</div><div class="line">		<span class="keyword">if</span> t &lt; m then m = t</div><div class="line">		<span class="keyword">if</span> m &lt;= alpha then <span class="keyword">return</span> m</div><div class="line"><span class="keyword">return</span> m</div></pre></td></tr></table></figure>
-<p>at Max node, the child’s value can change its alpha only.<br>at Min node, the child’s value can change its beta only.<br>From the parent to child, alpha, beta are unchanged.<br>Initial call $F2(root, -\infty, \infty)$</p>
-<h3 id="Nega-max"><a href="#Nega-max" class="headerlink" title="Nega-max"></a>Nega-max</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Algorithm F2(position p, alpha, eta)</div><div class="line"><span class="keyword">if</span> d = <span class="number">0</span></div><div class="line">	<span class="keyword">return</span> f(p)</div><div class="line"><span class="keyword">else</span></div><div class="line">	m = alpha</div><div class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to d do:</div><div class="line">		t = -F(pi, -beta, -m)</div><div class="line">		<span class="keyword">if</span> t &gt; m then m = t</div><div class="line">		<span class="keyword">if</span> m &gt;= beta then <span class="keyword">return</span> m //cut off</div><div class="line"><span class="keyword">return</span> m</div></pre></td></tr></table></figure>
-<p>The child’s value can only change parent’s alpha.<br>From parent to child, parent(alpha, beta) $\Rightarrow$ child(-beta, -alpha). It can change both.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>All above is mainly a summerize of <em>Tsan-sheng Hsu: Alpha-Beta Pruning: Algorithm and Analysis</em>. I add some own ideas, too.<br>If you want to read the analysis and the proof, you can read these two articles.</p>
-<blockquote>
-<p><em>Tsan-sheng Hsu: Alpha-Beta Pruning: Algorithm and Analysis</em><br><em>D. E. Knuth and R. W. Moore. An analysis of alpha-beta pruning. Artificial Intelligence, 6:293–326, 1975.</em></p>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2016/05/20/NP-Complete-Reduction/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -268,11 +199,11 @@ The value of a position $p$, $f(p)$ is a numerical val">
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Alpha-beta pruning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算复杂度</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Search</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NP完全</a>
         		</li>
       		
 		</ul>
@@ -292,83 +223,18 @@ The value of a position $p$, $f(p)$ is a numerical val">
 
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/05/20/NP-Complete-Reduction/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/05/27/Alpha-beta-pruning/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2016/06/16/进化出来的蒙娜丽莎/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          进化出来的“蒙娜丽莎”
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/05/20/America-politics/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">美国的政治</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
+
 
 
 
@@ -376,10 +242,11 @@ The value of a position $p$, $f(p)$ is a numerical val">
 
 
   
-    <div class="duoshuo"></div>
   
-
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -401,8 +268,8 @@ The value of a position $p$, $f(p)$ is a numerical val">
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
