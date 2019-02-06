@@ -63,9 +63,9 @@ toc_empty_wording: '目录，不存在的…'
 top: true
 
 # Miscellaneous
-baidu_analytics: ''
-google_analytics: ''
-favicon: /favicon.png
+# baidu_analytics: ''
+# google_analytics: ''
+# favicon: /favicon.png
 
 #你的头像url
 avatar: https://tvax1.sinaimg.cn/crop.0.0.400.400.180/eb7ca78fly8fk79v1b7jwj20b40b4dic.jpg

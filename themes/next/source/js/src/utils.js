@@ -156,7 +156,7 @@ NexT.utils = NexT.$u = {
 
         // Replace the iframe's dimensions and position the iframe absolute
         // This is the trick to emulate the video ratio
-        $iframe.width('100%').height('100%')
+        $iframe.height('100%').width('100%')
           .css({
             position: 'absolute',
             top     : '0',

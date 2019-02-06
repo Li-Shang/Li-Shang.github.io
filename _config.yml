@@ -4,8 +4,8 @@
 
 # Site
 title: Flipped
-subtitle: a crush.
-description: A blog about codes and games.
+subtitle: a crush on you
+description: codes and games.
 keywords: 无聊之作
 author: Li Shang
 language: zh-CN
@@ -83,7 +83,7 @@ feed:
   path: atom.xml  
   #在 rss 中最多生成的文章数(0显示所有)
   limit: 0
-  
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
