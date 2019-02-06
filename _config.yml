@@ -4,12 +4,12 @@
 
 # Site
 title: Flipped
-subtitle:
-description:
-keywords:
+subtitle: a crush.
+description: A blog about codes and games.
+keywords: 无聊之作
 author: Li Shang
-language:
-timezone:
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -73,8 +73,17 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next
 
+# 配置RSS
+feed: 
+  #feed 类型 (atom/rss2)
+  type: atom   
+  #rss 路径
+  path: atom.xml  
+  #在 rss 中最多生成的文章数(0显示所有)
+  limit: 0
+  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
