@@ -1876,7 +1876,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #5bc9fb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3451,8 +3451,8 @@ code.description {
 }
 .poetry-container {
   background-color: rgba(255,248,220,0.8);
-  padding-top: 43px;
-  margin-top: -43px;
+  padding-top: 3px;
+  margin-top: -3px;
   text-align: center;
 }
 .poetry-container .poetry-content p::selection {
@@ -3473,7 +3473,7 @@ code.description {
   margin: 100px auto 0;
   overflow: auto;
   max-width: 90%;
-  max-height: 700px;
+  max-height: 600px;
   display: inline-block;
   text-align: left;
   padding: 5px 15px 30px;
