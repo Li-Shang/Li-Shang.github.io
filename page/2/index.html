@@ -546,12 +546,89 @@
     
   </section>
 
-  
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
+
+  <!-- 音乐播放器-->
+  <style type="text/css">
+
+    #tstart-toolbar-top {
+        top: 0; /*最上*/
+        color: #3E3E3E;
+        right: 0;
+        position: fixed;
+        text-align: left;
+        width: 100%;
+        z-index: 10000;
+        _position: absolute; /* for IE6 */
+        _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+        overflow: visible;
+    }
+
+    #tstart-toolbar-top .tstart-right {
+        float: right; /*在右*/
+        margin: 5px 5px 5px 5px;
+        padding: 10px;
+        border: 1px solid silver;
+        background-color: white;
+        box-shadow: 0px 0px 5px #000;
+        -moz-box-shadow: 0px 0px 5px #000;
+        -webkit-box-shadow: 0px 0px 5px #000;
+    }
+
+    #tstart-toolbar-bottom {
+        position: fixed; /*固定*/
+        bottom: 0; /*在最下*/
+        color: #3E3E3E;
+        left: 0;
+        text-align: left;
+        width: 20%;
+        z-index: 10000;
+        _position: absolute; /* for IE6 */
+        _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+        overflow: visible;
+    }
+
+    #tstart-toolbar-bottom .tstart-left {
+        float: left; /*在左*/
+        width: 100%;
+        margin: 5px 5px 5px 5px;
+        padding: 5px;
+        border: 1px solid silver;
+        background-color: white;
+        /*椭圆与阴影*/
+        box-shadow: 0px 0px 5px #000;
+        -moz-box-shadow: 0px 0px 5px #000;
+        -webkit-box-shadow: 0px 0px 5px #000;
+    }
+
+    #tstart-toolbar-bottom .tstart-right {
+        float: right; /*在右*/
+        width: 300px;
+        margin: 5px 5px 5px 5px;
+        padding: 5px;
+        border: 1px solid silver;
+        background-color: white;
+        box-shadow: 0px 0px 5px #000;
+        -moz-box-shadow: 0px 0px 5px #000;
+        -webkit-box-shadow: 0px 0px 5px #000;
+    }
+  </style>
+    <div id="tstart-toolbar-bottom">
+        <div class="tstart-left">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=759610310&auto=0&height=430"></iframe>
+        </div>
+    </div>
+  <!--
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
 
           </div>
           
@@ -976,18 +1053,16 @@ show_date_time();
   
 
   
-  <div class="bg_content">
-	<canvas id="canvas"></canvas>
-	<canvas id="canvas1"></canvas>
+  <!-- <div class="bg_content"> -->
+	<!-- <canvas id="canvas"></canvas> -->
+	<!-- <canvas id="canvas1"></canvas> -->
 	  <!-- html5-canvas-animation -->
     <!--
 	  <div class="canvas-wrap">
 		  <div id="canvas3" class="gradient"></div>
 	  </div>
     -->
-  </div>
-  
-  
+  <!-- </div> -->
   
   <!-- 右上角github关注-->
 

@@ -4,10 +4,10 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
 	{
-        name: "canon in d",
-        artist: 'Brian Crain',
-        url: 'https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/music/Brian%20Crain%20-%20canon%20in%20d.mp3',
-        cover: 'http://p1.music.126.net/QGb9Vtyw7qHS00uEvPfM6g==/843325418547559.jpg?param=130y130',
+        name: "暗涌",
+        artist: '王菲',
+        url: 'http://www.ytmp3.cn/down/52980.mp3',
+        cover: 'http://p1.music.126.net/w8RFsMH8VJfPsBmVudYGsA==/109951163020569833.jpg',
       },
 	  {
         name: "Apologize",
