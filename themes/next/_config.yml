@@ -487,18 +487,18 @@ pangu: false
 # Baidu Analytics ID
 #baidu_analytics:
 
-# Disqus
-disqus:
-  enable: false
-  shortname:
-  count: true
-  lazyload: false
+# # Disqus
+# disqus:
+#   enable: false
+#   shortname:
+#   count: true
+#   lazyload: false
 
-# changyan
-changyan:
-  enable: false
-  appid:
-  appkey:
+# # changyan
+# changyan:
+#   enable: false
+#   appid:
+#   appkey:
 
 
 # Valine.
@@ -970,11 +970,6 @@ vendors:
   reading_progress:
 
   
-
-
-
-
-
 # Assets
 css: css
 js: js
@@ -983,11 +978,6 @@ images: images
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
-
-# 配置宠物信息
-#live2d:
-  #modle: hijiki
-  #moblieShow: false
   
 # Online contact
 # daovoice: true

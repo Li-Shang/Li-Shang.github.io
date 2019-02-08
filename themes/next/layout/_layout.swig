@@ -140,15 +140,15 @@
   <script type="text/javascript" src="/dist/APlayer.min.js"></script>
   <script type="text/javascript" src="/dist/music.js"></script>
   -->
- 
+
    <!-- 页面点击小红心 -->
 <!--  <script type="text/javascript" src="/js/src/clicklove.js"></script> -->
  <!-- 页面点击汉字 -->
 <!-- <script type="text/javascript" src="/js/src/hanzi.js"></script> -->
   
   <!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!-- <script type="text/javascript" src="/js/src/clipboard.min.js"></script>   -->
+<!-- <script type="text/javascript" src="/js/src/clipboard-use.js"></script>  -->
 <!-- 流星雨-->
 <!--<script type="text/javascript" src="/js/src/meteor-rain.js"></script>-->
 <!-- 粒子效果-->
