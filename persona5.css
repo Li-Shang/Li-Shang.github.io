@@ -1,10 +1,11 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-.container {
-  position: relative;
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>body {
   background-color: black;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40288/p5-bg.jpg');
   background-size: 100% auto;
   background-repeat: no-repeat;
+}
+.container {
+  position: relative;
 }
 
 .joker {
